@@ -1,8 +1,10 @@
-import "./App.css";
+
+import React from 'react';
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { Items } from "./components/Items";
+import { Items } from './components/Items';
 import { IamSeparate } from "./components/IamSeparate";
 import { Header } from "./components/Header";
+import "./App.css";
 
 const client = new QueryClient();
 function App() {

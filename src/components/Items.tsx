@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useItems } from './hooks/useItems';
 
 export function Items() {
-    const [sorter, setSorter] = useState();
+    const [sorter, setSorter] = useState<string>();
 
     const { isLoading, isError, error, fetchNextPage, data } = useItems();
 
@@ -10,18 +10,19 @@ export function Items() {
         !sorter ? setSorter('title') : setSorter(undefined);
     }
 
+    // @ts-ignore
     const flatData = useCallback(() => data?.pages?.flatMap(page => page).sort((a, b) =>
         sorter === 'title' ? b.title > a.title ? -1 : 1 : undefined) || [],
         [data?.pages?.length, sorter]);
 
-    if (isLoading) return "Loading still...";
+    if (isLoading) return <span>"Loading still..."</span>;
 
-    if (isError) return "Something went wrong: " + error.message;
+    if (isError) return <span>{`Something went wrong: ${(error as ErrorEvent).message}`}</span>;
 
     return (
         <div id="items-section">
             <span className='controls'>
-                <button onClick={fetchNextPage}>More</button>
+                <button onClick={fetchNextPage as any}>More</button>
                 <button onClick={sortByName}>{sorter === 'title' ? 'Order arrived' : 'Sort by title'}</button>
             </span>
             <ul>

@@ -15,7 +15,7 @@ export const useItems = () => {
 };
 
 export const useTotalCount = () => {
-    const [totalCount, setTotalCount] = useState(0);
+    const [totalCount, setTotalCount] = useState<number | undefined>(0);
     const { data } = useItems();
 
     useEffect(() => {
