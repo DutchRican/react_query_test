@@ -1,9 +1,16 @@
 {
   "name": "react_query_test",
   "version": "0.1.65",
+  "scripts": {
+    "start": "bun dev",
+    "hot": "bun dev --hot",
+    "build": "react-scripts build"
+  },
   "dependencies": {
+    "axios": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-query": "^3.39.2",
     "web-vitals": "^3.0.3"
   },
   "eslintConfig": {
@@ -12,7 +19,20 @@
     ]
   },
   "devDependencies": {
-    "typescript": "latest",
-    "react-refresh": "0.10.0"
+    "react-refresh": "^0.14.0",
+    "react-scripts": "^5.0.1",
+    "typescript": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

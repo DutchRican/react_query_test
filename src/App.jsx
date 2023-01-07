@@ -1,22 +1,21 @@
 import "./App.css";
-import logo from "./logo.svg";
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { Items } from "./components/Items";
+import { IamSeparate } from "./components/IamSeparate";
+import { Header } from "./components/Header";
 
+const client = new QueryClient();
 function App() {
   return (
-    <div className="App" role="main">
-      <article className="App-article">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h3>Welcome to React!</h3>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </article>
-    </div>
+    <QueryClientProvider client={client}>
+      <div className="App" role="main">
+        <Header />
+        <div className="main-body">
+          <Items />
+          <IamSeparate />
+        </div>
+      </div>
+    </QueryClientProvider>
   );
 }
 
