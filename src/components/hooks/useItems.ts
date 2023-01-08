@@ -21,5 +21,5 @@ export const useTotalCount = () => {
     useEffect(() => {
         setTotalCount(data?.pages.flatMap(pages => pages).length);
     }, [data?.pages.length]);
-    return {totalCount};
+    return totalCount;
 };
