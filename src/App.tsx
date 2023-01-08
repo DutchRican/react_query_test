@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { Items } from './components/Items';
 import { IamSeparate } from "./components/IamSeparate";

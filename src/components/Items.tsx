@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useItems } from './hooks/useItems';
 
 export function Items() {
@@ -26,7 +26,7 @@ export function Items() {
                 <button onClick={sortByName}>{sorter === 'title' ? 'Order arrived' : 'Sort by title'}</button>
             </span>
             <ul>
-                {flatData()?.map((item, idx) => <li key={idx}><span>{item.id}</span><span>{item.title}</span></li>)}
+                {flatData()?.map((item) => <li key={item.id}><span>{item.id}</span><span>{item.title}</span></li>)}
             </ul>
         </div>
     )

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTotalCount } from './hooks/useItems';
 
 export function IamSeparate() {
