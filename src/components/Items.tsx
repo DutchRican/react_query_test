@@ -1,5 +1,12 @@
-import { useCallback, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useItems } from './hooks/useItems';
+
+interface IPost {
+    id: number;
+    userId: number;
+    title: string;
+    body: string;
+}
 
 export function Items() {
     const [sorter, setSorter] = useState<string>();
@@ -11,7 +18,7 @@ export function Items() {
     }
 
     // @ts-ignore
-    const flatData = useCallback(() => data?.pages?.flatMap(page => page).sort((a, b) =>
+    const flatData:IPost[] = useMemo(() => data?.pages?.flatMap(page => page).sort((a, b) =>
         sorter === 'title' ? b.title > a.title ? -1 : 1 : undefined) || [],
         [data?.pages?.length, sorter]);
 
@@ -26,7 +33,7 @@ export function Items() {
                 <button onClick={sortByName}>{sorter === 'title' ? 'Order arrived' : 'Sort by title'}</button>
             </span>
             <ul>
-                {flatData()?.map((item) => <li key={item.id}><span>{item.id}</span><span>{item.title}</span></li>)}
+                {flatData.map((item: IPost) => <li key={item.id}><span>{item.id}</span><span>{item.title}</span></li>)}
             </ul>
         </div>
     )
